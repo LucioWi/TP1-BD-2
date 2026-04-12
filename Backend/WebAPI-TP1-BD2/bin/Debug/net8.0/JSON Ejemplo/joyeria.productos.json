@@ -1,0 +1,469 @@
+[
+  {
+    "_id": {
+      "$oid": "69d1a433c68aa1e63a11402a"
+    },
+    "nombre": "Datejust Perpetual",
+    "marca": "Rolex",
+    "categoria": "reloj",
+    "descripcion": "El icónico reloj Datejust de Rolex, símbolo de elegancia y precisión suiza",
+    "precioActual": 15128000,
+    
+    "especificaciones": {
+      "tipo_reloj": "automatico",
+      "diametro_mm": 36,
+      "grosor_mm": 12.5,
+      "material_caja": "acero inoxidable",
+      "material_cristal": "zafiro",
+      "resistencia_agua_m": 100,
+      "calibre": "3235",
+      "reserva_marcha_horas": 70,
+      "funciones": ["cronometro", "fecha"]
+    },
+    
+    "variantes": [
+      {
+        "id": "var_001_plateado",
+        "colorCaja": "acero",
+        "colorCintura": "negro",
+        "stock": 3,
+        "precioVariante": 15128000,
+        "imagen": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500"
+      },
+      {
+        "id": "var_001_dorado",
+        "colorCaja": "dorado",
+        "colorCintura": "marron",
+        "stock": 1,
+        "precioVariante": 18500000,
+        "imagen": "https://images.unsplash.com/photo-1579034727568-352a3441df52?w=500"
+      }
+    ],
+    
+    "historialPrecios": [
+      {
+        "fecha": "2024-01-01",
+        "precio": 14900000,
+        "razon": "promocion_anual"
+      },
+      {
+        "fecha": "2024-06-01",
+        "precio": 15128000,
+        "razon": "ajuste_inflacion"
+      }
+    ],
+    
+    "certificaciones": [
+      {
+        "tipo": "autenticidad",
+        "emisora": "Rolex",
+        "numero": "CH123456",
+        "fechaEmision": "2024-01-15",
+        "vigente": true
+      },
+      {
+        "tipo": "garantia",
+        "duracion_anos": 5,
+        "cobertura": ["defectos_fabricacion", "resistencia_agua"]
+      }
+    ],
+    
+    "reviews": [
+      {
+        "_id": "rev_001",
+        "usuario": "cliente_vip_001",
+        "calificacion": 5,
+        "titulo": "Perfección absoluta",
+        "contenido": "Exactamente lo que esperaba. Calidad excepcional y entrega rápida.",
+        "fecha": "2024-03-20",
+        "util": 128
+      },
+      {
+        "_id": "rev_002",
+        "usuario": "coleccionista_rolex",
+        "calificacion": 4.5,
+        "titulo": "Excelente, aunque puntual",
+        "contenido": "Muy buen producto. Solo esperaba un ajuste regalo.",
+        "fecha": "2024-02-10",
+        "util": 45
+      }
+    ],
+    
+    "disponibilidad": {
+      "tienda_fisica_buenos_aires": {
+        "stock": 2,
+        "reservable": true
+      },
+      "tienda_fisica_cordoba": {
+        "stock": 0,
+        "reservable": false
+      },
+      "online": {
+        "stock": 5,
+        "envio_dias": 2,
+        "envio_costo": 50000
+      }
+    },
+    
+    "colecciones": ["coleccion_clasica", "coleccion_2024"],
+    "productosRelacionados": [
+      {
+        "productoid": "69d1a433c68aa1e63a11402b",
+        "tipo": "reloj",
+        "nombre": "Daytona"
+      },
+      {
+        "productoid": "69d59270f50e17a48d3682d1",
+        "tipo": "reloj",
+        "nombre": "Submariner"
+      }
+    ],
+    
+    "metadata": {
+      "creadoEn": "2024-01-10",
+      "actualizadoEn": "2024-10-15",
+      "vistas": 3421,
+      "compras": 7,
+      "tags": ["lujo", "reloj_suizo", "inversion", "rolex", "suiza"]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69d1a433c68aa1e63a11402b"
+    },
+    "nombre": "Daytona Racing",
+    "marca": "Rolex",
+    "categoria": "reloj",
+    "precioActual": 35610000,
+    "especificaciones": {
+      "tipo_reloj": "automatico",
+      "diametro_mm": 40,
+      "material_caja": "acero inoxidable",
+      "funciones": ["cronometro_mecanico"]
+    },
+    "variantes": [
+      {
+        "id": "var_002",
+        "colorCaja": "dorado_y_acero",
+        "stock": 1,
+        "precioVariante": 82000000
+      }
+    ],
+    "reviews": [
+      {
+        "_id": "rev_003",
+        "usuario": "piloto_profesional",
+        "calificacion": 5,
+        "titulo": "Instrumento de precisión"
+      }
+    ],
+    "metadata": {
+      "vistas": 8921,
+      "compras": 2
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69d1a433c68aa1e63a114034"
+    },
+    "nombre": "Anillo Solitario Eternidad",
+    "marca": "Cartier",
+    "categoria": "anillo",
+    "precioActual": 2500000,
+    "especificaciones": {
+      "tipo_anillo": "solitario",
+      "piedra_principal": {
+        "tipo": "diamante",
+        "quilates": 1.5,
+        "color": "D"
+      },
+      "metal": "oro_18k"
+    },
+    "variantes": [
+      {
+        "id": "var_anillo_001",
+        "talleAnillo": 13,
+        "stock": 1,
+        "precioVariante": 2500000
+      }
+    ],
+    "certificadosPiedras": [
+      {
+        "numeroCertificado": "GIA1234567",
+        "laboratorio": "GIA"
+      }
+    ],
+    "reviews": [
+      {
+        "_id": "rev_004",
+        "usuario": "novia_feliz",
+        "calificacion": 5,
+        "titulo": "El anillo de mis sueños"
+      }
+    ],
+    "metadata": {
+      "vistas": 5642,
+      "compras": 12
+    }
+  },
+  },
+  {
+    "_id": {
+      "$oid": "69d5e100f50e17a48d368401"
+    },
+    "nombre": "Aqua Deep X Pro",
+    "marca": "Breitling",
+    "categoria": "reloj",
+    "descripcion": "Reloj de buceo profesional. Sumergible hasta 3000 metros con características técnicas avanzadas",
+    "precioActual": 42500000,
+    
+    "especificaciones": {
+      "tipo_reloj": "automatico_mecanico",
+      "diametro_mm": 48,
+      "grosor_mm": 16,
+      "material_caja": "titanio_grado5",
+      "material_cristal": "zafiro_antiarañazo",
+      "resistencia_agua_m": 3000,
+      "calibre": "B01",
+      "reserva_marcha_horas": 60,
+      "funciones": ["cronometro_mecanico", "cronografo_flyback", "brujula", "campana_alarma", "buceo_profesional"],
+      "peso_g": 185,
+      "helium_escape_valve": true,
+      "rotula_unidireccional": "engranaje_tungsteno",
+      "certificacion": "COSC_chronometer"
+    },
+    
+    "variantes": [
+      {
+        "id": "var_aqua_001",
+        "colorCaja": "titanio_natural",
+        "colorEsfera": "negro_mate",
+        "correa": "caucho_especial",
+        "stock": 1,
+        "precioVariante": 42500000,
+        "imagen": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600"
+      },
+      {
+        "id": "var_aqua_002",
+        "colorCaja": "titanio_anodizado_azul",
+        "colorEsfera": "azul_marino",
+        "correa": "cadena_titanio",
+        "stock": 0,
+        "precioVariante": 46700000,
+        "imagen": "https://images.unsplash.com/photo-1569495473103-84667f13b54f?w=600"
+      }
+    ],
+    
+    "certificaciones": [
+      {
+        "tipo": "buceo_profesional",
+        "emisora": "IANTD",
+        "comentario": "Certificado para buceo técnico profesional",
+        "vigente": true
+      },
+      {
+        "tipo": "chronometer",
+        "emisora": "COSC",
+        "numero": "BR2024B01",
+        "fechaEmision": "2024-08-01",
+        "vigente": true
+      },
+      {
+        "tipo": "material_titanio",
+        "emisora": "Breitling",
+        "detalles": "Titanio de grado 5 con tratamiento especial"
+      }
+    ],
+    
+    "reviews": [
+      {
+        "_id": "rev_aqua_001",
+        "usuario": "buzo_tecnico",
+        "calificacion": 5,
+        "titulo": "La mejor herramienta para buceo profundo",
+        "contenido": "He buceado a 2800m con este reloj. Resistencia perfecta, precisión impecable incluso bajo presión extrema. La válvula de escape de helio es un detalle ingeniero.",
+        "fecha": "2024-06-15",
+        "util": 342
+      },
+      {
+        "_id": "rev_aqua_002",
+        "usuario": "relojero_profesional",
+        "calificacion": 4.5,
+        "titulo": "Ingeniería suiza de nivel máximo",
+        "contenido": "Desmontado en mi taller. Cada componente es una obra de arte. El calibre B01 es legendario.",
+        "fecha": "2024-07-02",
+        "util": 256
+      }
+    ],
+    
+    "disponibilidad": {
+      "tienda_fisica_buenos_aires": {
+        "stock": 1,
+        "reservable": true
+      },
+      "online": {
+        "stock": 0,
+        "envio_dias": 0
+      }
+    },
+    
+    "colecciones": ["buceo_profesional", "edicion_limitada_2024"],
+    
+    "metadata": {
+      "creadoEn": "2024-08-01",
+      "actualizadoEn": "2024-10-20",
+      "vistas": 12450,
+      "compras": 3,
+      "tags": ["buceo", "titanio", "deportivo", "profundidad", "profesional", "tecnologia"]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69d5e100f50e17a48d368402"
+    },
+    "nombre": "Aurora Pearl Essence",
+    "marca": "Majorica",
+    "categoria": "brazalete",
+    "descripcion": "Pulsera delicada de perlas cultivadas naturales. Pieza minimalista con diseño atemporal perfecto para cualquier ocasión",
+    "precioActual": 580000,
+    
+    "especificaciones": {
+      "tipo_brazalete": "elastico_perlas",
+      "perla_principal": {
+        "tipo": "perla_cultivada",
+        "diametro_mm": 8,
+        "color": "blanco_natural",
+        "brillo": "AAA",
+        "origen": "agua_dulce"
+      },
+      "perlas_secundarias": [
+        {
+          "tipo": "perla_cultivada",
+          "cantidad": 18,
+          "diametro_mm": 6,
+          "brilol": "AA"
+        },
+        {
+          "tipo": "distanciadores",
+          "material": "plata_925",
+          "cantidad": 5,
+          "diseno": "filigrana"
+        }
+      ],
+      "estiramiento_circ": "18-20cm",
+      "peso_aprox_g": 45,
+      "acabado": "brillo_natural",
+      "mantenimiento": "agua_destilada_esporadico"
+    },
+    
+    "variantes": [
+      {
+        "id": "var_aurora_001",
+        "colorPerlas": "blanco_natural",
+        "distanciadores": "plata_pulida",
+        "stock": 5,
+        "precioVariante": 580000,
+        "imagen": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600"
+      },
+      {
+        "id": "var_aurora_002",
+        "colorPerlas": "gris_platinado",
+        "distanciadores": "oro_blanco_bañado",
+        "stock": 2,
+        "precioVariante": 650000,
+        "imagen": "https://images.unsplash.com/photo-1578778746661-21eb973e34fe?w=600"
+      },
+      {
+        "id": "var_aurora_003",
+        "colorPerlas": "rosado_champagne",
+        "distanciadores": "oro_rosa_bañado",
+        "stock": 3,
+        "precioVariante": 680000,
+        "imagen": "https://images.unsplash.com/photo-1568308199c4-5ca1801c2e3d?w=600"
+      }
+    ],
+    
+    "certificadosPiedras": [
+      {
+        "piedraId": "perla_central",
+        "tipoCertificacion": "autenticidad_perla",
+        "laboratorio": "Majorica",
+        "fecha": "2024-09-15",
+        "detalles": {
+          "tipo": "perla_cultivada_agua_dulce",
+          "diametro": "8mm",
+          "color": "blanco_natural",
+          "calidad": "AAA",
+          "tratamiento": "sin_blanqueo"
+        }
+      }
+    ],
+    
+    "historialPrecios": [
+      {
+        "fecha": "2024-09-01",
+        "precio": 550000,
+        "razon": "precio_lanzamiento"
+      },
+      {
+        "fecha": "2024-10-01",
+        "precio": 580000,
+        "razon": "aumento_perlas_premium"
+      }
+    ],
+    
+    "reviews": [
+      {
+        "_id": "rev_aurora_001",
+        "usuario": "fashionista_elegante",
+        "calificacion": 5,
+        "titulo": "Elegancia discreta y sofisticada",
+        "contenido": "La pulsera es tan hermosa. Las perlas son genuinas y el acabado es impecable. Es perfecta para usar diariamente sin ser extravagante. Un lujo accesible.",
+        "fecha": "2024-09-28",
+        "util": 187
+      },
+      {
+        "_id": "rev_aurora_002",
+        "usuario": "regalo_especial",
+        "calificacion": 5,
+        "titulo": "Perfecta como regalo de bodas",
+        "contenido": "Compré para mi hermana. El empaque es precioso y la pulsera se ve de gran calidad. Dice que nunca se la quita.",
+        "fecha": "2024-10-05",
+        "util": 94
+      }
+    ],
+    
+    "disponibilidad": {
+      "tienda_fisica_buenos_aires": {
+        "stock": 4,
+        "reservable": true
+      },
+      "tienda_fisica_cordoba": {
+        "stock": 2,
+        "reservable": true
+      },
+      "online": {
+        "stock": 8,
+        "envio_dias": 1,
+        "envio_costo": 15000
+      }
+    },
+    
+    "colecciones": ["perlas_naturales", "minimalismo", "regalos_especiales"],
+    "productosRelacionados": [
+      {
+        "productoid": "69d594def50e17a48d3682dd",
+        "tipo": "pendientes",
+        "nombre": "Pendientes Elegance"
+      }
+    ],
+    
+    "metadata": {
+      "creadoEn": "2024-09-01",
+      "actualizadoEn": "2024-10-15",
+      "vistas": 3256,
+      "compras": 18,
+      "tags": ["perlas", "natural", "elegante", "minimalista", "regalo", "diario", "mujer"]
+    }
+  }
+]

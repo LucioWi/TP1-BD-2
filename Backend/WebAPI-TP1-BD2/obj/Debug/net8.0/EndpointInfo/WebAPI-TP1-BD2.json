@@ -1,0 +1,978 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "WebAPI-TP1-BD2",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Producto": {
+      "get": {
+        "tags": [
+          "Producto"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductoResponseDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductoResponseDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductoResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Producto"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Producto/{id}": {
+      "get": {
+        "tags": [
+          "Producto"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Producto"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProductoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductoResponseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Producto"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CertificacionDto": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "emisora": {
+            "type": "string",
+            "nullable": true
+          },
+          "numero": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaEmision": {
+            "type": "string",
+            "nullable": true
+          },
+          "vigente": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "comentario": {
+            "type": "string",
+            "nullable": true
+          },
+          "duracionAnos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cobertura": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "detalles": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertificadoPiedraDto": {
+        "type": "object",
+        "properties": {
+          "numeroCertificado": {
+            "type": "string",
+            "nullable": true
+          },
+          "laboratorio": {
+            "type": "string",
+            "nullable": true
+          },
+          "piedraId": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoCertificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "fecha": {
+            "type": "string",
+            "nullable": true
+          },
+          "detalles": {
+            "$ref": "#/components/schemas/DetallesCertificadoDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateProductoDto": {
+        "required": [
+          "categoria",
+          "marca",
+          "nombre",
+          "precioActual"
+        ],
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "marca": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "categoria": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "descripcion": {
+            "maxLength": 2000,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "precioActual": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64"
+          },
+          "especificaciones": {
+            "$ref": "#/components/schemas/EspecificacionesDto"
+          },
+          "variantes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VarianteDto"
+            },
+            "nullable": true
+          },
+          "historialPrecios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrecioHistoriaDto"
+            },
+            "nullable": true
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewDto"
+            },
+            "nullable": true
+          },
+          "disponibilidad": {
+            "$ref": "#/components/schemas/DisponibilidadDto"
+          },
+          "colecciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "productosRelacionados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductoRelacionadoDto"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MetadataDto"
+          },
+          "certificaciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CertificacionDto"
+            },
+            "nullable": true
+          },
+          "certificadosPiedras": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CertificadoPiedraDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DetallesCertificadoDto": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "diametro": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "calidad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tratamiento": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisponibilidadDto": {
+        "type": "object",
+        "properties": {
+          "tiendaFisicaBuenosAires": {
+            "$ref": "#/components/schemas/TiendaFisicaDto"
+          },
+          "tiendaFisicaCordoba": {
+            "$ref": "#/components/schemas/TiendaFisicaDto"
+          },
+          "online": {
+            "$ref": "#/components/schemas/DisponibilidadOnlineDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DisponibilidadOnlineDto": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "envioDias": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "envioCosto": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EspecificacionesDto": {
+        "type": "object",
+        "properties": {
+          "tipoReloj": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoAnillo": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoBrazalete": {
+            "type": "string",
+            "nullable": true
+          },
+          "diametroMm": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "grosorMm": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "materialCaja": {
+            "type": "string",
+            "nullable": true
+          },
+          "materialCristal": {
+            "type": "string",
+            "nullable": true
+          },
+          "resistenciaAguaM": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "calibre": {
+            "type": "string",
+            "nullable": true
+          },
+          "reservaMarchaHoras": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "funciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "pesoG": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "heliumEscapeValve": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "rotulaUnidireccional": {
+            "type": "string",
+            "nullable": true
+          },
+          "certificacion": {
+            "type": "string",
+            "nullable": true
+          },
+          "piedraPrincipal": {
+            "$ref": "#/components/schemas/PiedraPrincipalDto"
+          },
+          "metal": {
+            "type": "string",
+            "nullable": true
+          },
+          "perlaPrincipal": {
+            "$ref": "#/components/schemas/PerlaPrincipalDto"
+          },
+          "perlasSecundarias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PerlaSecundariaDto"
+            },
+            "nullable": true
+          },
+          "estiramientoCirc": {
+            "type": "string",
+            "nullable": true
+          },
+          "pesoAproxG": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "acabado": {
+            "type": "string",
+            "nullable": true
+          },
+          "mantenimiento": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MetadataDto": {
+        "type": "object",
+        "properties": {
+          "creadoEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "actualizadoEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "vistas": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "compras": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerlaPrincipalDto": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "diametroMm": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "brillo": {
+            "type": "string",
+            "nullable": true
+          },
+          "origen": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerlaSecundariaDto": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "diametroMm": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "brillo": {
+            "type": "string",
+            "nullable": true
+          },
+          "material": {
+            "type": "string",
+            "nullable": true
+          },
+          "diseno": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PiedraPrincipalDto": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "quilates": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrecioHistoriaDto": {
+        "type": "object",
+        "properties": {
+          "fecha": {
+            "type": "string",
+            "nullable": true
+          },
+          "precio": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "razon": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductoRelacionadoDto": {
+        "type": "object",
+        "properties": {
+          "productoId": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductoResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "marca": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "precioActual": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "especificaciones": {
+            "$ref": "#/components/schemas/EspecificacionesDto"
+          },
+          "variantes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VarianteDto"
+            },
+            "nullable": true
+          },
+          "historialPrecios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrecioHistoriaDto"
+            },
+            "nullable": true
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewDto"
+            },
+            "nullable": true
+          },
+          "disponibilidad": {
+            "$ref": "#/components/schemas/DisponibilidadDto"
+          },
+          "colecciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "productosRelacionados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductoRelacionadoDto"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MetadataDto"
+          },
+          "certificaciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CertificacionDto"
+            },
+            "nullable": true
+          },
+          "certificadosPiedras": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CertificadoPiedraDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuario": {
+            "type": "string",
+            "nullable": true
+          },
+          "calificacion": {
+            "type": "number",
+            "format": "double"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "contenido": {
+            "type": "string",
+            "nullable": true
+          },
+          "fecha": {
+            "type": "string",
+            "nullable": true
+          },
+          "util": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TiendaFisicaDto": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reservable": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateProductoDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "marca": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "categoria": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "maxLength": 2000,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "precioActual": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "especificaciones": {
+            "$ref": "#/components/schemas/EspecificacionesDto"
+          },
+          "variantes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VarianteDto"
+            },
+            "nullable": true
+          },
+          "historialPrecios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrecioHistoriaDto"
+            },
+            "nullable": true
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReviewDto"
+            },
+            "nullable": true
+          },
+          "disponibilidad": {
+            "$ref": "#/components/schemas/DisponibilidadDto"
+          },
+          "colecciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "productosRelacionados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductoRelacionadoDto"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MetadataDto"
+          },
+          "certificaciones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CertificacionDto"
+            },
+            "nullable": true
+          },
+          "certificadosPiedras": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CertificadoPiedraDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VarianteDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "colorCaja": {
+            "type": "string",
+            "nullable": true
+          },
+          "colorCintura": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "precioVariante": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "imagen": {
+            "type": "string",
+            "nullable": true
+          },
+          "colorEsfera": {
+            "type": "string",
+            "nullable": true
+          },
+          "correa": {
+            "type": "string",
+            "nullable": true
+          },
+          "talleAnillo": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "colorPerlas": {
+            "type": "string",
+            "nullable": true
+          },
+          "distanciadores": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
