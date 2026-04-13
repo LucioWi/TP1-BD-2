@@ -11,6 +11,8 @@ builder.Services.AddSingleton<IMongoClient>(_ => new MongoClient(mongoSettings.C
 
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IProductoDetalleRepository, ProductoDetalleRepository>();
+builder.Services.AddScoped<IProductoDetalleService, ProductoDetalleService>();
 
 builder.Services.AddCors(options =>
 {
@@ -38,7 +40,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors();
+app.UseCors("AllowAll");
 app.UseAuthorization();
 
 app.MapControllers();
