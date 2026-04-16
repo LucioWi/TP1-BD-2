@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Ejecutivo - Maison de Luxe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[#fcfcfc] font-sans antialiased text-zinc-100 min-h-screen">
+  <header class="border-b border-amber-500/20 bg-zinc-900/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-wrap gap-4 items-center justify-between">
+      <div>
+        <p class="text-[11px] uppercase tracking-[0.35em] text-amber-300/80">Maison de Luxe</p>
+        <h1 class="text-xl md:text-2xl font-light">Dashboard Estrategico</h1>
+      </div>
+      <a href="index.html" class="text-xs uppercase tracking-widest border border-amber-400/40 px-4 py-2 hover:bg-amber-400/10 transition-colors">
+        Volver al catalogo
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-6 space-y-6">
+    <section class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 md:p-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <label class="flex flex-col gap-2">
+          <span class="text-xs uppercase tracking-widest text-zinc-400">Filtro tiempo</span>
+          <select id="timeMode" class="bg-zinc-950 border border-zinc-700 rounded px-3 py-2 text-sm">
+            <option value="year">Año</option>
+            <option value="month">Mes y año</option>
+            <option value="fiscal">Año fiscal (desde marzo)</option>
+          </select>
+        </label>
+        <label class="flex flex-col gap-2">
+          <span class="text-xs uppercase tracking-widest text-zinc-400">Año</span>
+          <select id="yearFilter" class="bg-zinc-950 border border-zinc-700 rounded px-3 py-2 text-sm"></select>
+        </label>
+        <label id="monthFilterWrap" class="hidden flex flex-col gap-2">
+          <span class="text-xs uppercase tracking-widest text-zinc-400">Mes</span>
+          <select id="monthFilter" class="bg-zinc-950 border border-zinc-700 rounded px-3 py-2 text-sm">
+            <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option><option value="4">Abril</option>
+            <option value="5">Mayo</option><option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option>
+            <option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+          </select>
+        </label>
+        <label class="flex flex-col gap-2">
+          <span class="text-xs uppercase tracking-widest text-zinc-400">Categoria</span>
+          <select id="categoryFilter" class="bg-zinc-950 border border-zinc-700 rounded px-3 py-2 text-sm"></select>
+        </label>
+        <label class="flex flex-col gap-2">
+          <span class="text-xs uppercase tracking-widest text-zinc-400">Producto</span>
+          <select id="productFilter" class="bg-zinc-950 border border-zinc-700 rounded px-3 py-2 text-sm"></select>
+        </label>
+        <label class="flex flex-col gap-2 lg:col-span-2">
+          <span class="text-xs uppercase tracking-widest text-zinc-400">Material</span>
+          <select id="materialFilter" class="bg-zinc-950 border border-zinc-700 rounded px-3 py-2 text-sm"></select>
+        </label>
+        <div class="lg:col-span-3 flex items-end">
+          <p id="statusText" class="text-xs text-zinc-400">Cargando productos...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+        <p class="text-xs uppercase tracking-widest text-zinc-400">Ingresos totales</p>
+        <p id="kpiRevenue" class="text-2xl mt-2 font-semibold text-amber-300">$0</p>
+      </article>
+      <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+        <p class="text-xs uppercase tracking-widest text-zinc-400">Ticket promedio</p>
+        <p id="kpiTicket" class="text-2xl mt-2 font-semibold">$0</p>
+      </article>
+      <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+        <p class="text-xs uppercase tracking-widest text-zinc-400">Valorizacion stock</p>
+        <p id="kpiStockValue" class="text-2xl mt-2 font-semibold">$0</p>
+      </article>
+    </section>
+
+
+      <section class="grid grid-cols-2 xl:grid-cols-2 gap-4 ">
+        <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+          <h2 class="text-sm uppercase tracking-widest text-zinc-300 mb-4">Mix ventas por material</h2>
+          <canvas id="materialPieChart" height="200"></canvas>
+        </article>
+        <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+          <h2 class="text-sm uppercase tracking-widest text-zinc-300 mb-4">Rendimiento temporal (actual vs anterior)</h2>
+          <canvas id="performanceLineChart" height="200"></canvas>
+        </article>
+        <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+          <h2 class="text-sm uppercase tracking-widest text-zinc-300 mb-4">Eficiencia conversion (vistas vs compras)</h2>
+          <canvas id="conversionBarChart" height="200"></canvas>
+        </article>
+        <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+          <h2 class="text-sm uppercase tracking-widest text-zinc-300 mb-4">Distribucion por canal</h2>
+          <canvas id="channelBarChart" height="200"></canvas>
+        </article>
+      </section>
+
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+        <h2 class="text-sm uppercase tracking-widest text-zinc-300 mb-4">Top 5 / Bottom 5 ventas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-wider text-emerald-400 mb-2">Top 5</p>
+            <ul id="topProductsList" class="space-y-2 text-sm"></ul>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-wider text-rose-400 mb-2">Bottom 5</p>
+            <ul id="bottomProductsList" class="space-y-2 text-sm"></ul>
+          </div>
+        </div>
+      </article>
+      <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5 space-y-4">
+        <h2 class="text-sm uppercase tracking-widest text-zinc-300">Salud inventario y antiguedad</h2>
+        <div>
+          <p class="text-xs uppercase tracking-wider text-amber-400 mb-2">Stock bajo (&lt; 3)</p>
+          <ul id="lowStockList" class="space-y-2 text-sm"></ul>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-wider text-purple-300 mb-2">Indice antiguedad (antiguos + stock alto)</p>
+          <ul id="agingList" class="space-y-2 text-sm"></ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+        <h2 class="text-sm uppercase tracking-widest text-zinc-300 mb-4">Impacto certificaciones</h2>
+        <div id="certImpactBox" class="text-sm text-zinc-300"></div>
+      </article>
+      <article class="bg-zinc-900 border border-zinc-800 rounded-xl p-5">
+        <h2 class="text-sm uppercase tracking-widest text-zinc-300 mb-4">Resumen rapido</h2>
+        <ul id="summaryList" class="space-y-2 text-sm text-zinc-300"></ul>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="../js/dashboard.js"></script>
+</body>
+</html>

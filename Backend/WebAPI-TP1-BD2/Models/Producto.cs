@@ -3,6 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace WebAPI_TP1_BD2.Models;
 
+[BsonIgnoreExtraElements]
 public class Producto
 {
     [BsonId]
@@ -29,6 +30,9 @@ public class Producto
 
     [BsonElement("variantes")]
     public List<Variante>? Variantes { get; set; }
+
+    [BsonElement("ventas")]
+    public List<Venta>? Ventas { get; set; }
 
     [BsonElement("historialPrecios")]
     public List<PrecioHistoria>? HistorialPrecios { get; set; }

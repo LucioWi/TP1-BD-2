@@ -21,6 +21,7 @@ public class UpdateProductoDto
 
     public EspecificacionesDto? Especificaciones { get; set; }
     public List<VarianteDto>? Variantes { get; set; }
+    public List<VentaDto>? Ventas { get; set; }
     public List<PrecioHistoriaDto>? HistorialPrecios { get; set; }
     public List<ReviewDto>? Reviews { get; set; }
     public DisponibilidadDto? Disponibilidad { get; set; }

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using WebAPI_TP1_BD2.DTOs;
 using WebAPI_TP1_BD2.Models;
 using WebAPI_TP1_BD2.Services;
 
@@ -9,16 +10,18 @@ namespace WebAPI_TP1_BD2.Controllers;
 public class ProductoDetalleController : ControllerBase
 {
     private readonly IProductoDetalleService _service;
+    private readonly IProductoService _productoService;
 
-    public ProductoDetalleController(IProductoDetalleService service)
+    public ProductoDetalleController(IProductoDetalleService service, IProductoService productoService)
     {
         _service = service;
+        _productoService = productoService;
     }
 
     [HttpGet]
-    public async Task<ActionResult<Producto>> Get(string id)
+    public async Task<ActionResult<ProductoResponseDto>> Get(string id)
     {
-        var producto = await _service.GetProductoAsync(id);
+        var producto = await _productoService.GetByIdAsync(id);
         if (producto is null)
             return NotFound();
         return Ok(producto);

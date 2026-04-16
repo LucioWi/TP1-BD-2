@@ -1,0 +1,14 @@
+# --- EDITORES ---
+.idea/
+**/ .idea/
+.vs/
+**/ .vs/
+.vscode/
+
+# --- FRONTEND ---
+**/node_modules/
+Frontend/dist/
+
+# --- BACKEND (.NET) ---
+**/bin/
+**/obj/

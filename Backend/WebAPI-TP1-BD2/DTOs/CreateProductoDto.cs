@@ -25,6 +25,7 @@ public class CreateProductoDto
 
     public EspecificacionesDto? Especificaciones { get; set; }
     public List<VarianteDto>? Variantes { get; set; }
+    public List<VentaDto>? Ventas { get; set; }
     public List<PrecioHistoriaDto>? HistorialPrecios { get; set; }
     public List<ReviewDto>? Reviews { get; set; }
     public DisponibilidadDto? Disponibilidad { get; set; }
@@ -40,6 +41,10 @@ public class EspecificacionesDto
     public string? TipoReloj { get; set; }
     public string? TipoAnillo { get; set; }
     public string? TipoBrazalete { get; set; }
+    public string? MaterialPrincipal { get; set; }
+    public string? Estilo { get; set; }
+    public bool? Cronometro { get; set; }
+    public bool? Cronografo { get; set; }
     public double? DiametroMm { get; set; }
     public double? GrosorMm { get; set; }
     public string? MaterialCaja { get; set; }

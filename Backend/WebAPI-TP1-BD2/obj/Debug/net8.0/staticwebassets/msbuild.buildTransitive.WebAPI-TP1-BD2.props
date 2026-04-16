@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\WebAPI-TP1-BD2.props" />
-</Project>

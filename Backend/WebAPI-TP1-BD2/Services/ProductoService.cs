@@ -70,6 +70,7 @@ public class ProductoService : IProductoService
             PrecioActual = producto.PrecioActual,
             Especificaciones = MapEspecificaciones(producto.Especificaciones),
             Variantes = producto.Variantes?.Select(MapVariante).ToList(),
+            Ventas = producto.Ventas?.Select(MapVenta).ToList(),
             HistorialPrecios = producto.HistorialPrecios?.Select(MapPrecioHistoria).ToList(),
             Reviews = producto.Reviews?.Select(MapReview).ToList(),
             Disponibilidad = MapDisponibilidad(producto.Disponibilidad),
@@ -92,6 +93,7 @@ public class ProductoService : IProductoService
             PrecioActual = dto.PrecioActual,
             Especificaciones = MapEspecificacionesDto(dto.Especificaciones),
             Variantes = dto.Variantes?.Select(MapVarianteDto).ToList(),
+            Ventas = dto.Ventas?.Select(MapVentaDto).ToList(),
             HistorialPrecios = dto.HistorialPrecios?.Select(MapPrecioHistoriaDto).ToList(),
             Reviews = dto.Reviews?.Select(MapReviewDto).ToList(),
             Disponibilidad = MapDisponibilidadDto(dto.Disponibilidad),
@@ -112,6 +114,7 @@ public class ProductoService : IProductoService
         if (dto.PrecioActual.HasValue) producto.PrecioActual = dto.PrecioActual.Value;
         if (dto.Especificaciones is not null) producto.Especificaciones = MapEspecificacionesDto(dto.Especificaciones);
         if (dto.Variantes is not null) producto.Variantes = dto.Variantes.Select(MapVarianteDto).ToList();
+        if (dto.Ventas is not null) producto.Ventas = dto.Ventas.Select(MapVentaDto).ToList();
         if (dto.HistorialPrecios is not null) producto.HistorialPrecios = dto.HistorialPrecios.Select(MapPrecioHistoriaDto).ToList();
         if (dto.Reviews is not null) producto.Reviews = dto.Reviews.Select(MapReviewDto).ToList();
         if (dto.Disponibilidad is not null) producto.Disponibilidad = MapDisponibilidadDto(dto.Disponibilidad);
@@ -130,6 +133,10 @@ public class ProductoService : IProductoService
             TipoReloj = esp.TipoReloj,
             TipoAnillo = esp.TipoAnillo,
             TipoBrazalete = esp.TipoBrazalete,
+            MaterialPrincipal = esp.MaterialPrincipal,
+            Estilo = esp.Estilo,
+            Cronometro = esp.Cronometro,
+            Cronografo = esp.Cronografo,
             DiametroMm = esp.DiametroMm,
             GrosorMm = esp.GrosorMm,
             MaterialCaja = esp.MaterialCaja,
@@ -161,6 +168,38 @@ public class ProductoService : IProductoService
 
     private static PerlaSecundariaDto? MapPerlaSecundaria(PerlaSecundaria perla)
         => new() { Tipo = perla.Tipo, Cantidad = perla.Cantidad, DiametroMm = perla.DiametroMm, Brillo = perla.Brillo, Material = perla.Material, Diseno = perla.Diseno };
+
+    private static VentaDto MapVenta(Venta venta)
+        => new()
+        {
+            Fecha = venta.Fecha,
+            Cantidad = venta.Cantidad,
+            MontoTotal = venta.MontoTotal,
+            Plataforma = MapPlataformaVenta(venta.Plataforma)
+        };
+
+    private static Venta MapVentaDto(VentaDto dto)
+        => new()
+        {
+            Fecha = dto.Fecha,
+            Cantidad = dto.Cantidad,
+            MontoTotal = dto.MontoTotal,
+            Plataforma = MapPlataformaVentaDto(dto.Plataforma)
+        };
+
+    private static PlataformaVentaDto? MapPlataformaVenta(PlataformaVenta? plataforma)
+        => plataforma is null ? null : new PlataformaVentaDto
+        {
+            Online = plataforma.Online,
+            Fisico = plataforma.Fisico
+        };
+
+    private static PlataformaVenta? MapPlataformaVentaDto(PlataformaVentaDto? dto)
+        => dto is null ? null : new PlataformaVenta
+        {
+            Online = dto.Online,
+            Fisico = dto.Fisico
+        };
 
     private static VarianteDto MapVariante(Variante variante)
         => new()
@@ -224,6 +263,10 @@ public class ProductoService : IProductoService
             TipoReloj = dto.TipoReloj,
             TipoAnillo = dto.TipoAnillo,
             TipoBrazalete = dto.TipoBrazalete,
+            MaterialPrincipal = dto.MaterialPrincipal,
+            Estilo = dto.Estilo,
+            Cronometro = dto.Cronometro,
+            Cronografo = dto.Cronografo,
             DiametroMm = dto.DiametroMm,
             GrosorMm = dto.GrosorMm,
             MaterialCaja = dto.MaterialCaja,

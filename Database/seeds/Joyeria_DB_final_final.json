@@ -1,0 +1,407 @@
+[
+  {
+    "_id": { "$oid": "69d1a433c68aa1e63a11402a" },
+    "nombre": "Datejust Perpetual",
+    "marca": "Rolex",
+    "categoria": "reloj",
+    "descripcion": "El icónico reloj Datejust de Rolex, símbolo de elegancia y precisión suiza",
+    "precioActual": 15128000,
+    "especificaciones": {
+      "tipo_reloj": "automatico",
+      "diametro_mm": 36,
+      "grosor_mm": 12.5,
+      "material_caja": "acero inoxidable",
+      "material_cristal": "zafiro",
+      "resistencia_agua_m": 100,
+      "calibre": "3235",
+      "reserva_marcha_horas": 70,
+      "funciones": ["cronometro", "fecha"]
+    },
+    "variantes": [
+      {
+        "id": "var_001_plateado",
+        "colorCaja": "acero",
+        "colorCintura": "negro",
+        "stock": 3,
+        "precioVariante": 15128000,
+        "imagen": "https://time4diamonds.com/cdn/shop/articles/6-1_1_5bf90d61-63f4-44ca-9ff2-971e4311ee51.jpg?v=1754481030&width=1500"
+      },
+      {
+        "id": "var_001_dorado",
+        "colorCaja": "dorado",
+        "colorCintura": "marron",
+        "stock": 2,
+        "precioVariante": 18500000,
+        "imagen": "https://images.unsplash.com/photo-1579034727568-352a3441df52?w=500"
+      }
+    ],
+    "ventas": [
+      { "fecha": "2024-05-12", "cantidad": 1, "montoTotal": 15128000, "plataforma": { "online": 0, "fisico": 1 } },
+      { "fecha": "2025-11-20", "cantidad": 2, "montoTotal": 30256000, "plataforma": { "online": 1, "fisico": 1 } },
+      { "fecha": "2026-02-15", "cantidad": 1, "montoTotal": 15128000, "plataforma": { "online": 1, "fisico": 0 } }
+    ],
+    "metadata": {
+      "creadoEn": "2024-01-10",
+      "compras": 4,
+      "vistas": 12450,
+      "tags": ["lujo", "rolex"]
+    }
+  },
+  {
+    "_id": { "$oid": "69d1a433c68aa1e63a11402b" },
+    "nombre": "Daytona Racing",
+    "marca": "Rolex",
+    "categoria": "reloj",
+    "descripcion": "El cronógrafo de lujo por excelencia.",
+    "precioActual": 35610000,
+    "especificaciones": { "tipo_reloj": "automatico", "diametro_mm": 40, "material_caja": "acero inoxidable", "funciones": ["cronometro"] },
+    "variantes": [
+      { "id": "var_002", "stock": 1, "precioVariante": 35610000, "imagen": "https://img.chrono24.com/images/uhren/45124974-7yt7ed1ac43h2hif9mjlhuyd-ExtraLarge.jpg" },
+      { "id": "var_002_gold", "stock": 1, "precioVariante": 42000000, "imagen": "https://images.unsplash.com/photo-1547996160-81dfa63595dd?w=500" }
+    ],
+    "ventas": [
+      { "fecha": "2024-08-10", "cantidad": 1, "montoTotal": 35610000, "plataforma": { "online": 1, "fisico": 0 } },
+      { "fecha": "2026-01-05", "cantidad": 1, "montoTotal": 35610000, "plataforma": { "online": 0, "fisico": 1 } }
+    ],
+    "metadata": { "tags": ["carrera", "lujo"], "compras": 2, "vistas": 18300 }
+  },
+  {
+    "_id": { "$oid": "69d1a433c68aa1e63a114034" },
+    "nombre": "Anillo Solitario Eternidad",
+    "marca": "Cartier",
+    "categoria": "anillo",
+    "descripcion": "Diamante único en oro 18k.",
+    "precioActual": 2500000,
+    "especificaciones": { "tipo_anillo": "solitario", "metal": "oro_18k" },
+    "variantes": [
+      { "id": "var_anillo_01", "stock": 1, "precioVariante": 2500000, "imagen": "https://i.ebayimg.com/images/g/ujIAAeSwUjZpTL2M/s-l1200.webp" },
+      { "id": "var_anillo_02", "stock": 2, "precioVariante": 2800000, "imagen": "https://images.unsplash.com/photo-1605100804763-247f67b3f8a6?w=500" }
+    ],
+    "ventas": [
+      { "fecha": "2025-06-15", "cantidad": 1, "montoTotal": 2500000, "plataforma": { "online": 0, "fisico": 1 } },
+      { "fecha": "2026-03-10", "cantidad": 2, "montoTotal": 5000000, "plataforma": { "online": 1, "fisico": 1 } }
+    ],
+    "metadata": { "tags": ["diamante", "compromiso"], "compras": 3, "vistas": 7600 }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000001" },
+    "nombre": "Casio Sport Classic",
+    "marca": "Casio",
+    "categoria": "reloj",
+    "descripcion": "Reloj digital resistente y funcional.",
+    "precioActual": 85000,
+    "especificaciones": { "tipo_reloj": "digital", "resistencia_agua_m": 50 },
+    "variantes": [
+      { "id": "var_4", "stock": 15, "precioVariante": 85000, "imagen": "https://cdn.shopify.com/s/files/1/0278/9723/3501/files/Casio-F91W-2.jpg?v=1693247088" },
+      { "id": "var_4_black", "stock": 10, "precioVariante": 95000, "imagen": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" }
+    ],
+    "ventas": [
+      { "fecha": "2024-02-10", "cantidad": 5, "montoTotal": 425000, "plataforma": { "online": 3, "fisico": 2 } },
+      { "fecha": "2025-05-12", "cantidad": 3, "montoTotal": 255000, "plataforma": { "online": 1, "fisico": 2 } },
+      { "fecha": "2026-04-01", "cantidad": 4, "montoTotal": 340000, "plataforma": { "online": 2, "fisico": 2 } }
+    ],
+    "metadata": { "compras": 12, "vistas": 15400, "tags": ["casio", "digital"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000002" },
+    "nombre": "Seiko Heritage Automatic",
+    "marca": "Seiko",
+    "categoria": "reloj",
+    "descripcion": "Elegancia japonesa con movimiento automático.",
+    "precioActual": 450000,
+    "especificaciones": { "tipo_reloj": "automatico", "resistencia_agua_m": 100 },
+    "variantes": [{ "id": "var_5", "stock": 8, "precioVariante": 450000, "imagen": "https://img.chrono24.com/images/uhren/45662184-pzgvgsw1tawlodo1irca2j65-ExtraLarge.jpg" }],
+    "ventas": [
+      { "fecha": "2024-11-20", "cantidad": 2, "montoTotal": 900000, "plataforma": { "online": 1, "fisico": 1 } },
+      { "fecha": "2025-08-15", "cantidad": 1, "montoTotal": 450000, "plataforma": { "online": 0, "fisico": 1 } },
+      { "fecha": "2026-02-28", "cantidad": 2, "montoTotal": 900000, "plataforma": { "online": 2, "fisico": 0 } }
+    ],
+    "metadata": { "compras": 5, "vistas": 6200, "tags": ["seiko", "automatico"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000003" },
+    "nombre": "Tissot Gentleman Neo",
+    "marca": "Tissot",
+    "categoria": "reloj",
+    "descripcion": "El equilibrio perfecto entre deporte y oficina.",
+    "precioActual": 950000,
+    "especificaciones": { "tipo_reloj": "cuarzo", "resistencia_agua_m": 100 },
+    "variantes": [{ "id": "var_6", "stock": 5, "precioVariante": 950000, "imagen": "https://www.tissotwatches.com/dw/image/v2/BKKD_PRD/on/demandware.static/-/Sites-Tissot-Catalogue/default/dw9ca753fb/product-pictures/5dcbf607-e232-4c17-95e8-bd1db2097ed4_T127-410-11-041-00_AMB_1.png" }],
+    "ventas": [
+      { "fecha": "2024-03-05", "cantidad": 1, "montoTotal": 950000, "plataforma": { "online": 1, "fisico": 0 } },
+      { "fecha": "2025-12-24", "cantidad": 2, "montoTotal": 1900000, "plataforma": { "online": 1, "fisico": 1 } }
+    ],
+    "metadata": { "compras": 3, "vistas": 4800, "tags": ["tissot", "suizo"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000004" },
+    "nombre": "Omega Seamaster Heritage",
+    "marca": "Omega",
+    "categoria": "reloj",
+    "descripcion": "Reloj de buceo icónico.",
+    "precioActual": 7500000,
+    "especificaciones": { "tipo_reloj": "automatico", "resistencia_agua_m": 300 },
+    "variantes": [{ "id": "var_7", "stock": 2, "precioVariante": 7500000, "imagen": "https://cdn3.ethoswatches.com/the-watch-guide/wp-content/uploads/2024/02/Omega-Seamaster-300-Bronze-Gold-Feat.jpg" }],
+    "ventas": [
+      { "fecha": "2025-01-10", "cantidad": 1, "montoTotal": 7500000, "plataforma": { "online": 1, "fisico": 0 } },
+      { "fecha": "2026-04-12", "cantidad": 1, "montoTotal": 7500000, "plataforma": { "online": 0, "fisico": 1 } }
+    ],
+    "metadata": { "compras": 2, "vistas": 9200, "tags": ["omega", "buceo"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000005" },
+    "nombre": "TAG Heuer Carrera Sport",
+    "marca": "TAG Heuer",
+    "categoria": "reloj",
+    "descripcion": "Inspirado en el automovilismo.",
+    "precioActual": 4200000,
+    "especificaciones": { "tipo_reloj": "automatico", "resistencia_agua_m": 100 },
+    "variantes": [{ "id": "var_8", "stock": 3, "precioVariante": 4200000, "imagen": "https://timeandtidewatches.com/wp-content/uploads/2024/08/tag-heuer-carrera-chronograph-extreme-sport-gold-wrist-dial.jpg.webp" }],
+    "ventas": [
+      { "fecha": "2024-06-20", "cantidad": 1, "montoTotal": 4200000, "plataforma": { "online": 0, "fisico": 1 } },
+      { "fecha": "2025-09-15", "cantidad": 1, "montoTotal": 4200000, "plataforma": { "online": 1, "fisico": 0 } }
+    ],
+    "metadata": { "compras": 2, "vistas": 8400, "tags": ["tagheuer", "carreras"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000006" },
+    "nombre": "Pandora Bracelet Shine",
+    "marca": "Pandora",
+    "categoria": "brazalete",
+    "descripcion": "Brazalete de plata para tus charms favoritos.",
+    "precioActual": 120000,
+    "especificaciones": { "material_principal": "plata_925", "estilo": "urbano" },
+    "variantes": [{ "id": "var_9", "stock": 25, "precioVariante": 120000, "imagen": "https://prelovedpandora.com/cdn/shop/products/image_7985ef26-fc3a-4b5a-9dba-58c825bc797a.jpg?v=1652450823" }],
+    "ventas": [
+      { "fecha": "2024-12-15", "cantidad": 10, "montoTotal": 1200000, "plataforma": { "online": 6, "fisico": 4 } },
+      { "fecha": "2025-02-14", "cantidad": 15, "montoTotal": 1800000, "plataforma": { "online": 10, "fisico": 5 } },
+      { "fecha": "2026-03-20", "cantidad": 8, "montoTotal": 960000, "plataforma": { "online": 4, "fisico": 4 } }
+    ],
+    "metadata": { "compras": 33, "vistas": 21500, "tags": ["pandora", "plata"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000007" },
+    "nombre": "Swarovski Crystal Necklace",
+    "marca": "Swarovski",
+    "categoria": "collar",
+    "descripcion": "Collar con cristales de corte brillante.",
+    "precioActual": 180000,
+    "especificaciones": { "material_principal": "aleacion_bañada", "estilo": "elegante" },
+    "variantes": [{ "id": "var_10", "stock": 12, "precioVariante": 180000, "imagen": "https://i.ebayimg.com/images/g/ZAAAAOSwuihf4MP9/s-l1200.jpg" }],
+    "ventas": [
+      { "fecha": "2024-10-10", "cantidad": 4, "montoTotal": 720000, "plataforma": { "online": 2, "fisico": 2 } },
+      { "fecha": "2025-05-05", "cantidad": 6, "montoTotal": 1080000, "plataforma": { "online": 4, "fisico": 2 } }
+    ],
+    "metadata": { "compras": 10, "vistas": 12800, "tags": ["swarovski", "cristal"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000008" },
+    "nombre": "Tiffany & Co. T-Ring",
+    "marca": "Tiffany & Co.",
+    "categoria": "anillo",
+    "descripcion": "Icono de la joyería moderna.",
+    "precioActual": 1500000,
+    "especificaciones": { "metal": "oro_rosa_18k", "estilo": "minimalista" },
+    "variantes": [{ "id": "var_11", "stock": 4, "precioVariante": 1500000, "imagen": "https://image.invaluable.com/housePhotos/arkauctioninc/45/765045/H23030-L362992077.jpg" }],
+    "ventas": [
+      { "fecha": "2025-01-20", "cantidad": 1, "montoTotal": 1500000, "plataforma": { "online": 1, "fisico": 0 } },
+      { "fecha": "2026-04-05", "cantidad": 1, "montoTotal": 1500000, "plataforma": { "online": 0, "fisico": 1 } }
+    ],
+    "metadata": { "compras": 2, "vistas": 6900, "tags": ["tiffany", "lujo"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000009" },
+    "nombre": "Citizen Eco-Drive Modern",
+    "marca": "Citizen",
+    "categoria": "reloj",
+    "descripcion": "Tecnología de carga solar infinita.",
+    "precioActual": 320000,
+    "especificaciones": { "tipo_reloj": "solar", "resistencia_agua_m": 100 },
+    "variantes": [{ "id": "var_12", "stock": 10, "precioVariante": 320000, "imagen": "https://i.ebayimg.com/images/g/LDoAAeSwAeNoRFbH/s-l400.jpg" }],
+    "ventas": [
+      { "fecha": "2024-04-15", "cantidad": 3, "montoTotal": 960000, "plataforma": { "online": 2, "fisico": 1 } },
+      { "fecha": "2026-02-10", "cantidad": 2, "montoTotal": 640000, "plataforma": { "online": 1, "fisico": 1 } }
+    ],
+    "metadata": { "compras": 5, "vistas": 5300, "tags": ["citizen", "ecodrive"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000010" },
+    "nombre": "Bulgari Serpenti Neo",
+    "marca": "Bulgari",
+    "categoria": "reloj",
+    "descripcion": "Diseño audaz en forma de serpiente.",
+    "precioActual": 9800000,
+    "especificaciones": { "tipo_reloj": "cuarzo", "material_caja": "oro_amarillo" },
+    "variantes": [{ "id": "var_13", "stock": 1, "precioVariante": 9800000, "imagen": "https://img.chrono24.com/images/uhren/37014388-uhmtu6sh8imwb2v3f5f5purv-ExtraLarge.jpg" }],
+    "ventas": [{ "fecha": "2025-12-01", "cantidad": 1, "montoTotal": 9800000, "plataforma": { "online": 1, "fisico": 0 } }],
+    "metadata": { "compras": 1, "vistas": 4200, "tags": ["bulgari", "serpenti"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000011" },
+    "nombre": "Seiko 5 Sport Heritage",
+    "marca": "Seiko",
+    "categoria": "reloj",
+    "descripcion": "El reloj automático para todos los días.",
+    "precioActual": 380000,
+    "especificaciones": { "tipo_reloj": "automatico", "resistencia_agua_m": 100 },
+    "variantes": [{ "id": "var_14", "stock": 12, "precioVariante": 380000, "imagen": "https://img.chrono24.com/images/uhren/39094987-0u4gwfjf0zzajlcfxeaulz1k-ExtraLarge.jpg" }],
+    "ventas": [
+      { "fecha": "2024-05-20", "cantidad": 4, "montoTotal": 1520000, "plataforma": { "online": 2, "fisico": 2 } },
+      { "fecha": "2026-03-01", "cantidad": 3, "montoTotal": 1140000, "plataforma": { "online": 1, "fisico": 2 } }
+    ],
+    "metadata": { "compras": 7, "vistas": 5900, "tags": ["seiko", "deportivo"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000012" },
+    "nombre": "Casio G-Shock Neo",
+    "marca": "Casio",
+    "categoria": "reloj",
+    "descripcion": "Indestructible y moderno.",
+    "precioActual": 180000,
+    "especificaciones": { "tipo_reloj": "digital", "resistencia_agua_m": 200 },
+    "variantes": [{ "id": "var_15", "stock": 20, "precioVariante": 180000, "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx1tkBQyDCkUFO5Ma8fD8CgsVz7-4CqmwJbA&s" }],
+    "ventas": [
+      { "fecha": "2024-01-10", "cantidad": 10, "montoTotal": 1800000, "plataforma": { "online": 5, "fisico": 5 } },
+      { "fecha": "2025-11-11", "cantidad": 12, "montoTotal": 2160000, "plataforma": { "online": 8, "fisico": 4 } }
+    ],
+    "metadata": { "compras": 22, "vistas": 19200, "tags": ["gshock", "resistencia"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000013" },
+    "nombre": "Pandora Charm Dije",
+    "marca": "Pandora",
+    "categoria": "dije",
+    "descripcion": "Un detalle especial para tu brazalete.",
+    "precioActual": 45000,
+    "especificaciones": { "material_principal": "plata_925", "estilo": "urbano" },
+    "variantes": [{ "id": "var_16", "stock": 50, "precioVariante": 45000, "imagen": "https://http2.mlstatic.com/D_NQ_NP_797954-MLA109739754833_032026-O.webp" }],
+    "ventas": [
+      { "fecha": "2024-12-20", "cantidad": 20, "montoTotal": 900000, "plataforma": { "online": 12, "fisico": 8 } },
+      { "fecha": "2026-01-15", "cantidad": 15, "montoTotal": 675000, "plataforma": { "online": 10, "fisico": 5 } }
+    ],
+    "metadata": { "compras": 35, "vistas": 28400, "tags": ["charm", "pandora"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000014" },
+    "nombre": "Omega Speedmaster Neo",
+    "marca": "Omega",
+    "categoria": "reloj",
+    "descripcion": "El primer reloj en la luna.",
+    "precioActual": 8900000,
+    "especificaciones": { "tipo_reloj": "cuerda_manual", "cronometro": true },
+    "variantes": [{ "id": "var_17", "stock": 2, "precioVariante": 8900000, "imagen": "https://images.unsplash.com/photo-1557531751-2294990c017f?w=500" }],
+    "ventas": [{ "fecha": "2025-07-20", "cantidad": 1, "montoTotal": 8900000, "plataforma": { "online": 1, "fisico": 0 } }],
+    "metadata": { "compras": 1, "vistas": 7100, "tags": ["omega", "moonwatch"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000015" },
+    "nombre": "Seiko Presage Neo",
+    "marca": "Seiko",
+    "categoria": "reloj",
+    "descripcion": "Dial inspirado en cócteles.",
+    "precioActual": 550000,
+    "especificaciones": { "tipo_reloj": "automatico", "material_cristal": "hardlex" },
+    "variantes": [{ "id": "var_18", "stock": 6, "precioVariante": 550000, "imagen": "https://media.gq.com.mx/photos/6787e895993c629b4cc0bce8/16:9/w_2560%2Cc_limit/Omega_Speedmaster_Moonphase_Meteorite_negro.jpg" }],
+    "ventas": [
+      { "fecha": "2024-09-01", "cantidad": 2, "montoTotal": 1100000, "plataforma": { "online": 1, "fisico": 1 } },
+      { "fecha": "2026-04-10", "cantidad": 1, "montoTotal": 550000, "plataforma": { "online": 0, "fisico": 1 } }
+    ],
+    "metadata": { "compras": 3, "vistas": 4500, "tags": ["seiko", "presage"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000016" },
+    "nombre": "Citizen Promaster Sport",
+    "marca": "Citizen",
+    "categoria": "reloj",
+    "descripcion": "Resistencia extrema para profesionales.",
+    "precioActual": 480000,
+    "especificaciones": { "tipo_reloj": "eco-drive", "resistencia_agua_m": 200 },
+    "variantes": [{ "id": "var_19", "stock": 8, "precioVariante": 480000, "imagen": "https://img.chrono24.com/images/uhren/nwv0n5x95q7b-y1v8wrsl6d0g24qulomnmigw-ExtraLarge.jpg" }],
+    "ventas": [
+      { "fecha": "2025-03-12", "cantidad": 2, "montoTotal": 960000, "plataforma": { "online": 1, "fisico": 1 } },
+      { "fecha": "2026-02-15", "cantidad": 1, "montoTotal": 480000, "plataforma": { "online": 1, "fisico": 0 } }
+    ],
+    "metadata": { "compras": 3, "vistas": 3900, "tags": ["citizen", "promaster"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000017" },
+    "nombre": "Swarovski Earrings Classic",
+    "marca": "Swarovski",
+    "categoria": "pendientes",
+    "descripcion": "Brillo impecable para ocasiones especiales.",
+    "precioActual": 95000,
+    "especificaciones": { "material_principal": "rodio", "estilo": "elegante" },
+    "variantes": [{ "id": "var_20", "stock": 15, "precioVariante": 95000, "imagen": "https://www.cimberdesigns.com/cdn/shop/products/image_b2ba4e98-c7f3-4f85-8505-a80fdf2b898a.jpg?v=1607883941" }],
+    "ventas": [
+      { "fecha": "2024-06-15", "cantidad": 5, "montoTotal": 475000, "plataforma": { "online": 3, "fisico": 2 } },
+      { "fecha": "2025-12-20", "cantidad": 4, "montoTotal": 380000, "plataforma": { "online": 2, "fisico": 2 } }
+    ],
+    "metadata": { "compras": 9, "vistas": 8100, "tags": ["swarovski", "aros"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000018" },
+    "nombre": "Tissot PRX Heritage",
+    "marca": "Tissot",
+    "categoria": "reloj",
+    "descripcion": "Diseño retro de los años 70.",
+    "precioActual": 820000,
+    "especificaciones": { "tipo_reloj": "automatico", "resistencia_agua_m": 100 },
+    "variantes": [{ "id": "var_21", "stock": 4, "precioVariante": 820000, "imagen": "https://monochrome-watches.com/wp-content/uploads/2021/03/1978-Tissot-Seastar-PRX-Quartz-vintage.jpg" }],
+    "ventas": [
+      { "fecha": "2024-11-30", "cantidad": 1, "montoTotal": 820000, "plataforma": { "online": 0, "fisico": 1 } },
+      { "fecha": "2025-05-10", "cantidad": 2, "montoTotal": 1640000, "plataforma": { "online": 1, "fisico": 1 } }
+    ],
+    "metadata": { "compras": 3, "vistas": 5200, "tags": ["tissot", "prx"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000019" },
+    "nombre": "Tiffany & Co. Necklace Neo",
+    "marca": "Tiffany & Co.",
+    "categoria": "collar",
+    "descripcion": "Cadena delicada con dije distintivo.",
+    "precioActual": 2200000,
+    "especificaciones": { "metal": "plata_fina", "estilo": "lujo" },
+    "variantes": [{ "id": "var_22", "stock": 3, "precioVariante": 2200000, "imagen": "https://i.etsystatic.com/7201466/r/il/04dd3e/3737492090/il_1080xN.3737492090_kocb.jpg" }],
+    "ventas": [{ "fecha": "2026-02-14", "cantidad": 1, "montoTotal": 2200000, "plataforma": { "online": 1, "fisico": 0 } }],
+    "metadata": { "compras": 1, "vistas": 4900, "tags": ["tiffany", "collar"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000020" },
+    "nombre": "TAG Heuer Monaco Sport",
+    "marca": "TAG Heuer",
+    "categoria": "reloj",
+    "descripcion": "Caja cuadrada iconica.",
+    "precioActual": 6500000,
+    "especificaciones": { "tipo_reloj": "automatico", "cronografo": true },
+    "variantes": [{ "id": "var_23", "stock": 1, "precioVariante": 6500000, "imagen": "https://magazine.tagheuer.com/wp-content/uploads/2024/05/01_monaco_dark_blue_cbl2188.ft6261_16x9-1920x1080-1920x1080-c-default.jpg" }],
+    "ventas": [{ "fecha": "2025-10-10", "cantidad": 1, "montoTotal": 6500000, "plataforma": { "online": 0, "fisico": 1 } }],
+    "metadata": { "compras": 1, "vistas": 6200, "tags": ["tagheuer", "monaco"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000021" },
+    "nombre": "Bulgari B.Zero1 Ring",
+    "marca": "Bulgari",
+    "categoria": "anillo",
+    "descripcion": "Inspirado en el Coliseo.",
+    "precioActual": 2800000,
+    "especificaciones": { "metal": "oro_blanco_18k", "estilo": "arquitectonico" },
+    "variantes": [{ "id": "var_24", "stock": 2, "precioVariante": 2800000, "imagen": "https://www.elitehnw.com/cdn/shop/products/image_8ccca1fa-9023-4b8c-9dd4-6c704c2e354c_800x.heic?v=1663671635" }],
+    "ventas": [{ "fecha": "2024-03-25", "cantidad": 1, "montoTotal": 2800000, "plataforma": { "online": 1, "fisico": 0 } }],
+    "metadata": { "compras": 1, "vistas": 3400, "tags": ["bulgari", "anillo"] }
+  },
+  {
+    "_id": { "$oid": "69f000000000000000000022" },
+    "nombre": "Seiko Turtle Sport",
+    "marca": "Seiko",
+    "categoria": "reloj",
+    "descripcion": "Reloj de buceo profesional resistente.",
+    "precioActual": 420000,
+    "especificaciones": { "tipo_reloj": "automatico", "resistencia_agua_m": 200 },
+    "variantes": [{ "id": "var_25", "stock": 5, "precioVariante": 420000, "imagen": "https://acdn-us.mitiendanube.com/stores/582/395/products/spb315j1-41-5c7b5525195627d83a16820808935059-1024-1024.webp" }],
+    "ventas": [
+      { "fecha": "2024-07-15", "cantidad": 2, "montoTotal": 840000, "plataforma": { "online": 1, "fisico": 1 } },
+      { "fecha": "2025-11-20", "cantidad": 1, "montoTotal": 420000, "plataforma": { "online": 0, "fisico": 1 } }
+    ],
+    "metadata": { "compras": 3, "vistas": 4100, "tags": ["seiko", "turtle"] }
+  }
+]

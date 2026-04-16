@@ -1,6 +1,3 @@
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace WebAPI_TP1_BD2.Models;
@@ -16,6 +13,18 @@ public class Especificaciones
 
     [BsonElement("tipo_brazalete")]
     public string? TipoBrazalete { get; set; }
+
+    [BsonElement("material_principal")]
+    public string? MaterialPrincipal { get; set; }
+
+    [BsonElement("estilo")]
+    public string? Estilo { get; set; }
+
+    [BsonElement("cronometro")]
+    public bool? Cronometro { get; set; }
+
+    [BsonElement("cronografo")]
+    public bool? Cronografo { get; set; }
 
     [BsonElement("diametro_mm")]
     public double? DiametroMm { get; set; }
@@ -119,7 +128,7 @@ public class PerlaSecundaria
     [BsonElement("diametro_mm")]
     public double? DiametroMm { get; set; }
 
-    [BsonElement("brilol")]
+    [BsonElement("brillo")]
     public string? Brillo { get; set; }
 
     [BsonElement("material")]

@@ -1,7 +1,5 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-using MongoDB.Bson.Serialization.Attributes;
-
 namespace WebAPI_TP1_BD2.Models;
 
 [BsonIgnoreExtraElements]
