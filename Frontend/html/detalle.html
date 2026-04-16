@@ -60,11 +60,127 @@
   <script type="module">
     import { getProductoById } from "../js/services/apiService.js";
 
+    const FALLBACK_IMG = 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1000&auto=format&fit=crop';
+    let detalleVariantes = [];
+
     // Utilidad para limpiar nombres de propiedades (ej: "diametroMm" -> "Diametro Mm")
     function formatCamelCase(text) {
       const result = text.replace(/([A-Z])/g, " $1");
       return result.charAt(0).toUpperCase() + result.slice(1);
     }
+
+    function getVariantLabel(variant, index) {
+      return variant.colorCaja || variant.talleAnillo || variant.metal || variant.descripcion || `Variante ${index + 1}`;
+    }
+
+    function normalizeVariants(variantes = [], precioBase = 0) {
+      return variantes.map((variant, index) => {
+        const parsedStock = Number(variant?.stock);
+        const hasVariantPrice = variant?.precioVariante !== undefined && variant?.precioVariante !== null && variant?.precioVariante !== '';
+        const parsedVariantPrice = Number(variant?.precioVariante);
+
+        return {
+          ...variant,
+          index,
+          label: getVariantLabel(variant, index),
+          stock: Number.isFinite(parsedStock) ? parsedStock : 0,
+          precio: hasVariantPrice && Number.isFinite(parsedVariantPrice) ? parsedVariantPrice : Number(precioBase || 0),
+          imagen: variant?.imagen || FALLBACK_IMG,
+        };
+      });
+    }
+
+    function renderVariantesTab(variantes) {
+      if (!variantes.length) {
+        return '<p class="text-gray-500 text-sm">Información de variantes no disponible.</p>';
+      }
+
+      return `
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          ${variantes
+            .map(
+              (variant, index) => `
+              <button
+                id="variante-card-${index}"
+                class="w-full text-left border rounded-lg p-3 transition ${index === 0 ? 'border-black ring-1 ring-black' : 'border-gray-200 hover:border-gray-400'}"
+                onclick="seleccionarVariante(${index})"
+                type="button"
+              >
+                <div class="flex items-center gap-3">
+                  <img src="${variant.imagen}" alt="${variant.label}" class="w-14 h-14 rounded object-cover border border-gray-200">
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-gray-900 truncate">${variant.label}</p>
+                    <p class="text-xs text-gray-500 mt-1">Stock: ${variant.stock}</p>
+                    <p class="text-xs font-semibold text-gray-800">$${variant.precio.toLocaleString('es-AR')}</p>
+                  </div>
+                </div>
+              </button>
+            `
+            )
+            .join('')}
+        </div>
+      `;
+    }
+
+    function renderDisponibilidadTab(variantes) {
+      if (!variantes.length) {
+        return '<p class="text-gray-500 text-sm">Información de stock no disponible.</p>';
+      }
+
+      return `
+        <div class="space-y-2">
+          ${variantes
+            .map(
+              (variant) => `
+              <div class="flex items-center gap-3 border border-gray-200 rounded-md px-3 py-2">
+                <img src="${variant.imagen}" alt="${variant.label}" class="w-12 h-12 rounded object-cover border border-gray-200">
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm text-gray-900 truncate">${variant.label}</p>
+                </div>
+                <div class="text-sm font-semibold ${variant.stock > 0 ? 'text-[#2c5234]' : 'text-gray-400'}">
+                  ${variant.stock} disp.
+                </div>
+              </div>
+            `
+            )
+            .join('')}
+        </div>
+      `;
+    }
+
+    function seleccionarVariante(index) {
+      const variant = detalleVariantes[index];
+      if (!variant) return;
+
+      const imageEl = document.getElementById('imagenPrincipal');
+      const priceEl = document.getElementById('precioActual');
+      const stockEl = document.getElementById('stockVarianteActual');
+
+      if (imageEl) {
+        imageEl.src = variant.imagen;
+        imageEl.alt = variant.label;
+      }
+      if (priceEl) {
+        priceEl.textContent = `$${variant.precio.toLocaleString('es-AR')}`;
+      }
+      if (stockEl) {
+        stockEl.textContent = `${variant.stock} ${variant.label}`;
+      }
+
+      detalleVariantes.forEach((_, i) => {
+        const card = document.getElementById(`variante-card-${i}`);
+        if (!card) return;
+        if (i === index) {
+          card.classList.add('border-black', 'ring-1', 'ring-black');
+          card.classList.remove('border-gray-200', 'hover:border-gray-400');
+        } else {
+          card.classList.remove('border-black', 'ring-1', 'ring-black');
+          card.classList.add('border-gray-200', 'hover:border-gray-400');
+        }
+      });
+    }
+
+    window.seleccionarVariante = seleccionarVariante;
 
     async function cargarProducto() {
       const params = new URLSearchParams(window.location.search);
@@ -86,8 +202,15 @@
     }
 
     function mostrarProducto(p) {
-      const variante = p.variantes?.[0] || {};
       const especificaciones = p.especificaciones || {};
+      detalleVariantes = normalizeVariants(p.variantes || [], p.precioActual || 0);
+      const varianteInicial = detalleVariantes[0] || {
+        label: 'Variante unica',
+        stock: Number(p.metadata?.stock || 0),
+        precio: Number(p.precioActual || 0),
+        imagen: FALLBACK_IMG,
+      };
+      const stockTotal = detalleVariantes.reduce((acc, variant) => acc + (Number(variant.stock) || 0), 0);
 
       // 1. ESPECIFICACIONES LIMPIAS (Ocultando nulls y formateando labels)
       let especsHTML = '';
@@ -116,15 +239,9 @@
         }
       }
 
-      // Resto de pestañas simplificadas por espacio...
-      let variantesHTML = '<p class="text-gray-500 text-sm">Información de variantes no disponible.</p>';
-      let disponibilidadHTML = '<p class="text-gray-500 text-sm">Información de stock no disponible.</p>';
-      let certificacionesHTML = '<p class="text-gray-500 text-sm">Sin certificados asociados.</p>';
-      let reviewsHTML = '<p class="text-gray-500 text-sm">Sé el primero en valorar este producto.</p>';
-      let historialHTML = '<p class="text-gray-500 text-sm">El historial de precios no está público.</p>';
+      const variantesHTML = renderVariantesTab(detalleVariantes);
+      const disponibilidadHTML = renderDisponibilidadTab(detalleVariantes);
 
-      const imagenUrl = variante.imagen || 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1000&auto=format&fit=crop'; // Imagen de respaldo más acorde a relojes
-      
       // Tags en formato Badges
       let tagsHTML = '';
       if(p.metadata?.tags && p.metadata.tags.length > 0) {
@@ -134,13 +251,14 @@
       const html = `
         <div class="flex flex-col gap-4">
           <div class="bg-[#f4f4f4] rounded-lg p-8 flex items-center justify-center relative overflow-hidden group">
-            <img src="${imagenUrl}" alt="${p.nombre}" class="w-full h-auto max-h-[500px] object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105">
+            <img id="imagenPrincipal" src="${varianteInicial.imagen}" alt="${p.nombre}" class="w-full h-auto max-h-[500px] object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105">
           </div>
           
           <div class="flex flex-wrap items-center justify-between mt-2 text-xs text-gray-400">
-            <div class="flex gap-4">
+            <div id="dataContainer" class="flex gap-4">
               <span class="flex items-center gap-1">👁️ ${p.metadata?.vistas || 0} vistas</span>
               <span class="flex items-center gap-1">🛍️ ${p.metadata?.compras || 0} ventas</span>
+              <span class="flex items-center gap-1">📦 ${stockTotal} stock total</span>
             </div>
             <div class="flex gap-2 flex-wrap justify-end">
               ${tagsHTML}
@@ -151,8 +269,8 @@
         <div class="flex flex-col">
           <p class="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">${p.marca || 'Marca Desconocida'}</p>
           <h1 class="text-3xl md:text-4xl font-light text-black mb-4">${p.nombre}</h1>
-          <p class="text-2xl font-medium text-gray-900 mb-6">$${(p.precioActual || 0).toLocaleString('es-AR')}</p>
-          
+          <p id="precioActual" class="text-2xl font-medium text-gray-900 mb-6">$${varianteInicial.precio.toLocaleString('es-AR')}</p>
+
           <p class="text-gray-600 text-sm leading-relaxed mb-8 border-l-2 border-gray-200 pl-4">${p.descripcion || 'Una pieza excepcional de alta joyería.'}</p>
 
           <div class="flex flex-col sm:flex-row gap-4 mb-10">

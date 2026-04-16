@@ -96,12 +96,16 @@ function seleccionarProductoDeSugerencia(productId, nombreProducto) {
 /**
  * Carga el producto seleccionado del selector
  */
-async function cargarProductoSeleccionado() {
+async function cargarProductoSeleccionado(productIdForzado = "") {
   const select = document.getElementById('selectProducto');
   if (!select) return;
 
-  const productId = select.value;
-  
+  const productId = productIdForzado || select.value;
+
+  if (productIdForzado) {
+    select.value = productIdForzado;
+  }
+
   // Validación: producto es obligatorio
   if (!productId || productId.trim() === '') {
     alert('Por favor, selecciona un producto para continuar.');
@@ -222,9 +226,9 @@ function actualizarListaVariantes() {
           </div>
           
           <!-- Imagen a la derecha -->
-          <div class=" flex items-start justify-end" style="width: 8rem;">
-            <div class=" h-32 border-2 border-gray-300 rounded flex items-center justify-center bg-white overflow-hidden flex-shrink-0">
-              <img id="preview-${i}" src="${imagenUrl}" alt="Preview" class=" h-8 object-cover ${!tieneImagen ? 'hidden' : ''}" onerror="document.getElementById('preview-${i}').classList.add('hidden'); document.getElementById('no-image-${i}').classList.remove('hidden');">
+          <div class="flex items-start justify-end flex-shrink-0" style="width: 8rem;">
+            <div class="w-32 h-32 border-2 border-gray-300 rounded flex items-center justify-center bg-white overflow-hidden">
+              <img id="preview-${i}" src="${imagenUrl}" alt="Preview" class="w-full h-full object-cover ${!tieneImagen ? 'hidden' : ''}">
               <div id="no-image-${i}" class="text-center text-gray-400 text-xs p-2 ${tieneImagen ? 'hidden' : ''}">
                 <p>📷</p>
                 <p>Sin imagen</p>
@@ -235,6 +239,15 @@ function actualizarListaVariantes() {
       </div>
     `;
     container.innerHTML += html;
+
+    const previewImg = document.getElementById(`preview-${i}`);
+    const noImageDiv = document.getElementById(`no-image-${i}`);
+    if (previewImg) {
+      previewImg.addEventListener('error', () => {
+        previewImg.classList.add('hidden');
+        if (noImageDiv) noImageDiv.classList.remove('hidden');
+      });
+    }
   });
 }
 
@@ -308,6 +321,13 @@ function eliminarVariante(index) {
  */
 async function inicializarPagina() {
   await cargarListaProductos();
+
+  const params = new URLSearchParams(window.location.search);
+  const productId = params.get('id');
+
+  if (productId) {
+    await cargarProductoSeleccionado(productId);
+  }
 }
 
 /**

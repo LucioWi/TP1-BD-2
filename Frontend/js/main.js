@@ -31,13 +31,17 @@ function mostrarProductos(productos) {
   }
 
   productos.forEach((producto) => {
+    const productId = producto._id?.$oid || producto.id;
     const variante = producto.variantes?.[0] || {};
     const imagenUrl = variante.imagen || "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600";
     const review = producto.reviews?.[0];
+    const stockTotal = (producto.variantes || [])
+      .slice(0, 2)
+      .reduce((acc, varianteItem) => acc + (Number(varianteItem?.stock) || 0), 0);
 
     const stockInfo =
-      variante.stock > 0
-        ? `<span class="flex items-center gap-1.5 text-[#2c5234]"><span class="w-1.5 h-1.5 rounded-full bg-[#2c5234]"></span> ${variante.stock} disp.</span>`
+      stockTotal > 0
+        ? `<span class="flex items-center gap-1.5 text-[#2c5234]"><span class="w-1.5 h-1.5 rounded-full bg-[#2c5234]"></span> ${stockTotal} disp.</span>`
         : '<span class="flex items-center gap-1.5 text-gray-400"><span class="w-1.5 h-1.5 rounded-full bg-gray-300"></span> Agotado</span>';
 
     const rating = review
@@ -63,8 +67,8 @@ function mostrarProductos(productos) {
         <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-[11px] font-medium tracking-widest uppercase">
           <div class="text-gray-500">${stockInfo}</div>
           <div class="flex gap-4">
-            <a href="detalle.html?id=${producto.id}" class="text-gray-400 hover:text-black transition-colors">Ver</a>
-            <a href="editar.html?id=${producto.id}" class="text-gray-400 hover:text-black transition-colors">Editar</a>
+            <a href="detalle.html?id=${productId}" class="text-gray-400 hover:text-black transition-colors">Ver</a>
+            <a href="editar.html?id=${productId}" class="text-gray-400 hover:text-black transition-colors">Editar</a>
           </div>
         </div>
       </div>
